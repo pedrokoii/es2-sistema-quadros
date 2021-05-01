@@ -1,4 +1,3 @@
-import javax.swing.JOptionPane;
 
 public class Retangulo extends Quadro {
 	public double base;
@@ -7,7 +6,6 @@ public class Retangulo extends Quadro {
 	public Retangulo(double base, double altura) {
 		this.base = base;
 		this.altura = altura;
-		
 		area();
 		perimetro();
 	}
@@ -16,7 +14,7 @@ public class Retangulo extends Quadro {
 		this.area = base * altura;
 	}
 	
-	public double perimetro() {
+	public void perimetro() {
 		this.perimetro = 2 * (base + altura);
 	}
 	

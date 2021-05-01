@@ -26,10 +26,6 @@ Stakeholders
 - Funcionários da loja
 - Cliente
 
-Vocabulário de Negócio
-======================
-
-
 Atividades de Negócio
 =====================
 - A001 - Obtenção dos dados do quadro;
@@ -47,21 +43,21 @@ Primeiramente o funcionário registra as informações que devem ser fornecidas 
 Regras de Negócio
 =================
 RN0001 - Cálculos para quadros em formato de circunferência
-          A = PI*R^2
-          P = 2*PI*R
+          A = PI * R ^ 2
+          P = 2 * PI * R
 
           Sendo:
-          A = Área do quadro (em metros)
+          A = Área do quadro(em metros quadrados)
           P = Perímetro do quadro (em metros)
           R = Raio do quadro (em metros)
           PI = Constante matemática Pi (3,1415...)
 
 RN0002 - Cálculos para quadros em formato de retângulo
-          A = B*H
-          P = 2*(B+H)
+          A = B * H
+          P = 2 * (B + H)
           
           Sendo:
-          A = Área do quadro (em metros)
+          A = Área do quadro (em metros quadrados)
           P = Perímetro do quadro (em metros)
           B = Base do quadro (em metros)
           H = Altura do quadro (em metros)
@@ -71,10 +67,10 @@ RN0003 - Cálculo do preço do serviço.
 
           Sendo:
           VS = Valor do Serviço (em reais)
-           A = Área do quadro (em metros)
-          VP = Valor do Papel (em reais)
+           A = Área do quadro (em metros quadrados)
+          VP = Valor do Papel (em reais por metro quadrado)
 	   P = Perímetro do quadro (em metros)
-          VM = Valor da Moldura (em reais)
+          VM = Valor da Moldura (em reais por metro)
 	  MO = Mão de obra (%)
 
 Histórias de Usuário
