@@ -42,7 +42,7 @@ Atividades de Negócio
 Processo de Negócio
 ===================
 - A001 a A006
-Primeiramente o funcionário registra as informações que devem ser fornecidas pelo cliente, sendo elas o raio(mm), para quadros circulares, ou altura(mm) e largura(mm), para quadros retangulares. Em seguida, o funcionário calcula a área e o perímetro do quadro utilizando as fórmulas descritas na RN0001 (para circuferências) e na RN0002 (para retângulos). Na sequência, ele calcula o valor do serviço de acordo com a fórmula descrita na RN0003. O próximo passo é apresentar o valor calculado ao cliente e solicitar o aval para emissão da ordem de serviço. Por fim a ordem de serviço é gerada e registrada na ficha do cliente.
+Primeiramente o funcionário registra as informações que devem ser fornecidas pelo cliente, sendo elas o raio(m), para quadros circulares, ou altura(m) e largura(m), para quadros retangulares. Em seguida, o funcionário calcula a área e o perímetro do quadro utilizando as fórmulas descritas na RN0001 (para circuferências) e na RN0002 (para retângulos). Na sequência, ele calcula o valor do serviço de acordo com a fórmula descrita na RN0003. O próximo passo é apresentar o valor calculado ao cliente e solicitar o aval para emissão da ordem de serviço. Por fim a ordem de serviço é gerada e registrada na ficha do cliente.
 
 Regras de Negócio
 =================
@@ -51,9 +51,9 @@ RN0001 - Cálculos para quadros em formato de circunferência
           P = 2*PI*R
 
           Sendo:
-          A = Área do quadro (em milímetros)
-          P = Perímetro do quadro (em milímetros)
-          R = Raio do quadro (em milímetros)
+          A = Área do quadro (em metros)
+          P = Perímetro do quadro (em metros)
+          R = Raio do quadro (em metros)
           PI = Constante matemática Pi (3,1415...)
 
 RN0002 - Cálculos para quadros em formato de retângulo
@@ -61,13 +61,21 @@ RN0002 - Cálculos para quadros em formato de retângulo
           P = 2*(B+H)
           
           Sendo:
-          A = Área do quadro (em milímetros)
-          P = Perímetro do quadro (em milímetros)
-          B = Base do quadro (em milímetros)
-          H = Altura do quadro (em milímetros)
+          A = Área do quadro (em metros)
+          P = Perímetro do quadro (em metros)
+          B = Base do quadro (em metros)
+          H = Altura do quadro (em metros)
 
 RN0003 - Cálculo do preço do serviço.
-          VF = (A * VP + P * VM)*1,05
+          VS = (A * VP + P * VM) * (1 + MO)
+
+          Sendo:
+          VS = Valor do Serviço (em reais)
+           A = Área do quadro (em metros)
+          VP = Valor do Papel (em reais)
+	   P = Perímetro do quadro (em metros)
+          VM = Valor da Moldura (em reais)
+	  MO = Mão de obra (%)
 
 Histórias de Usuário
 ==========

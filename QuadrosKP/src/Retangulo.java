@@ -1,25 +1,23 @@
 import javax.swing.JOptionPane;
 
 public class Retangulo extends Quadro {
+	public double base;
+	public double altura;
 	
-	public Retangulo(double area, double perimetro) {
-		super(area, perimetro);
-		// TODO Auto-generated constructor stub
+	public Retangulo(double base, double altura) {
+		this.base = base;
+		this.altura = altura;
+		
+		area();
+		perimetro();
 	}
-
-	public double base, altura;
 	
-	void Calculo() {
-		String aux = JOptionPane.showInputDialog(null, "Digite a base");
-		base = Double.parseDouble(aux);
-		
-		aux = JOptionPane.showInputDialog(null, "Digite a altura");
-		altura = Double.parseDouble(aux);
-		
-		area = base * altura;
-		perimetro = 2 * (base + altura);
-		
-		JOptionPane.showMessageDialog(null, "área = " + area);
-		JOptionPane.showMessageDialog(null, "Perímetro = " + perimetro);
+	public void area() {
+		this.area = base * altura;
 	}
+	
+	public double perimetro() {
+		this.perimetro = 2 * (base + altura);
+	}
+	
 }
