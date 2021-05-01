@@ -1,77 +1,79 @@
 Negócio
 =======
 
-Atendimento na loja de quadros QuadrosKP de Mogi das Cruzes. Mais especificamente, o cálculo da área e perimetro da circuferência (para quadros circulares) 
-e o cálculo da área e perimetro do retângulo (p/ quadros retangulares).
+Atendimento na loja de quadros QuadrosKP de Mogi das Cruzes. Trata-se de uma loja especializada na impressão de imagens em alta qualidade e emolduração em formato de quadros.
 
 Problema/Oportunidade
 =====================
 
-Os funcionários da loja de quadros QuadrosKP recebem centenas de clientes semanalmente e fazem o cálculo da área e perimetro dos quadros manualmente. Esse cálculo é
-registrado em uma ficha do cliente, com informações sobre o cliente, sobre os valores de área do quadro e seu perimetro para elaboração da moldura. A realização do
-cálculo manual é lenta e propensa a erros. Já aconteceu de, por engano, o calculo ser feito da maneira incorreta e acabar frustando um dos clientes e acabou cancelando a
+Os funcionários da loja de quadros QuadrosKP recebem centenas de clientes semanalmente e fazem o cálculo da área e perímetro dos quadros manualmente. Esse cálculo é
+registrado em uma ficha do cliente, com informações sobre o cliente, sobre os valores de área do quadro e seu perímetro para elaboração da moldura. A realização do
+cálculo manual é lenta e propensa a erros. Já aconteceu de, por engano, o cálculo ser feito da maneira incorreta e acabar frustando um dos clientes, que acabou cancelando a
 compra. Outro caso foi na perda da ficha de registro, fazendo com que o pedido do cliente não fosse atendido conforme o combinado.
 
 Por que não usar calculadoras disponíveis na internet?
 Muitas vezes a internet no local passa por oscilações.
 
-Por que não usar um smartphone com um aplicativo de cálculo de IMC ou similar?
+Por que não usar um smartphone com um aplicativo similar?
 O sistema precisa ser integrado com a geração do pedido para maior rapidez no processo.
 
 Qual é a solução proposta?
-Usar os computadores/celulares dos funcionários para no momento do resultado do calculo ser disponibilizar uma prévia de como o quadro irá ficar e uma opcao de gerar a ficha do cliente.
+Usar os computadores da loja para inserir os dados fornecidos pelo cliente, de forma que o sistema possa calcular o preço e gerar a ordem de serviço, registrando-a no histórico do cliente.
 
 Stakeholders
 ============
-- Funcionários de lojas de quadros
+- Donos da loja
+- Funcionários da loja
 - Cliente
 
 Vocabulário de Negócio
 ======================
 
 
-Atividades de Negócio (NÃO É REQUISITO)
+Atividades de Negócio
 =====================
-- A001 - Calcular o área do quadro;
-- A002 - Calcular o perimetro do quadro;
-- A003 - Dado a área e perimetro do quadro, mostrar uma prévia de como o quadro irá ficar;
-- A004 - Registrar dados obtidos na ficha do cliente.
+- A001 - Obtenção dos dados do quadro;
+- A002 - Calcular o área do quadro;
+- A003 - Calcular o perímetro do quadro;
+- A004 - Dado a área e perímetro do quadro, calcular o valor do serviço;
+- A005 - Gerar a ordem de serviço, caso o cliente esteja de acordo com o valor;
+- A006 - Registrar a ordem de serviço na ficha do cliente.
 
 Processo de Negócio
 ===================
-- A001 a A004
-  O funcionário registra o tamanho do raio(mm) para quadros circulares ou altura(mm) e largura(mm) para quadros retangulares. Os valores são registrados na ficha do cliente, 
-com a data do dia. Em seguida, o funcionário calcula a área e o perimetro do quadro utilizando a fórmula descrita na RN0001 (para circuferencia) e na RN0002 (para retnagulos). Após o cálculo, 
-ele verifica na tabela da RN0003 qual é a classificação do quadro e define o preço que o cliente terá que pagar para elaboração do mesmo. Por fim, ele registra a área e perimetro, a 
-classificação e o preço que o cliente terá que pagar pelo quadro.
+- A001 a A006
+Primeiramente o funcionário registra as informações que devem ser fornecidas pelo cliente, sendo elas o raio(mm), para quadros circulares, ou altura(mm) e largura(mm), para quadros retangulares. Em seguida, o funcionário calcula a área e o perímetro do quadro utilizando as fórmulas descritas na RN0001 (para circuferências) e na RN0002 (para retângulos). Na sequência, ele calcula o valor do serviço de acordo com a fórmula descrita na RN0003. O próximo passo é apresentar o valor calculado ao cliente e solicitar o aval para emissão da ordem de serviço. Por fim a ordem de serviço é gerada e registrada na ficha do cliente.
 
 Regras de Negócio
 =================
-RN0001 - Cálculo de circunferências
-         área = PI.R^2
-         perímetro = 2.PI.R
+RN0001 - Cálculos para quadros em formato de circunferência
+          A = PI*R^2
+          P = 2*PI*R
 
-RN0002 - Cálculo de retângulos
-         área = BASE.ALTURA
-         perímetro = 2.(BASE+ALTURA)
+          Sendo:
+          A = Área do quadro (em milímetros)
+          P = Perímetro do quadro (em milímetros)
+          R = Raio do quadro (em milímetros)
+          PI = Constante matemática Pi (3,1415...)
 
-RN0003 - Tabela de classificação de tamanhos de papeis da série A.
-         Tamanho            Largura x Altura (mm)            Preço (R$)
-     Maior que A0             > 841 x 1189                Consultar Gerente
-     Entre A0 e A1	 841 x 1189 - 594 x 841                 100
-     Entre A1 e A2	  594 x 841 - 420 x 594                 80
-     Entre A2 e A3	  420 x 594 - 297 x 420                 40
-     Entre A3 e A4	  297 x 420 - 210 x 297                 20
-     Entre A4 e A5        210 x 297 - 148 x 210                 10
-     Menor que A5	      < 148 x 210                Consultar Gerente
+RN0002 - Cálculos para quadros em formato de retângulo
+          A = B*H
+          P = 2*(B+H)
+          
+          Sendo:
+          A = Área do quadro (em milímetros)
+          P = Perímetro do quadro (em milímetros)
+          B = Base do quadro (em milímetros)
+          H = Altura do quadro (em milímetros)
 
-Requisitos
+RN0003 - Cálculo do preço do serviço.
+          VF = (A * VP + P * VM)*1,05
+
+Histórias de Usuário
 ==========
-RF0001 - Cálculo da área e do perimetro
-         O sistema deve permitir ao usuário informar um CPF, nome, medidas desejadas para o quadro e, em seguida, calcular a área e perimetro para os dados informados.
-RF0002 - Classificação dos tamanhos dos quadros
-         O sistema deve obter, além do valor da área e perimetro (RN0001 e RN0002), a classificação em que o quadro se encontra, considerando RN0003.
-RF0003 - Classificação de preço do quadro
-         O sistema deve mostrar o preço que o cliente terá que pagar pelo quadro, baseado na área do quadro.
-RF0004 - O sistema deve armazenar um histórico dos pedidos realizados.
-RF0005 - Os funcionários podem consultar o histórico de cálculos dos pedidos a partir do seu CPF e nome completo.
+HU0001 - Cálculo do valor de um quadro circular
+          Eu, como funcionário da loja, desejo poder calcular o valor de um quadro em formato de circunferência informando seu raio. Assim poderei apresentar ao cliente a proposta para que ele avalie.
+HU0002 - Cálculo do valor de um quadro retangular
+          Eu, como funcionário da loja, desejo poder calcular o valor de um quadro em formato de retângulo informando sua base e altura. Assim poderei apresentar ao cliente a proposta para que ele avalie.
+HU0003 - Emissão de ordem de serviço
+          Eu, como funcionário da loja, desejo poder emitir a ordem de serviço com as informações do quadro e o valor cobrado. Assim o cliente recebe uma via como comprovante e uma segunda via é encaminhada ao setor de produção.
