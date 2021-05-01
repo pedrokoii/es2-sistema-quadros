@@ -1,0 +1,77 @@
+Negócio
+=======
+
+Atendimento na loja de quadros QuadrosKP de Mogi das Cruzes. Mais especificamente, o cálculo da área e perimetro da circuferência (para quadros circulares) 
+e o cálculo da área e perimetro do retângulo (p/ quadros retangulares).
+
+Problema/Oportunidade
+=====================
+
+Os funcionários da loja de quadros QuadrosKP recebem centenas de clientes semanalmente e fazem o cálculo da área e perimetro dos quadros manualmente. Esse cálculo é
+registrado em uma ficha do cliente, com informações sobre o cliente, sobre os valores de área do quadro e seu perimetro para elaboração da moldura. A realização do
+cálculo manual é lenta e propensa a erros. Já aconteceu de, por engano, o calculo ser feito da maneira incorreta e acabar frustando um dos clientes e acabou cancelando a
+compra. Outro caso foi na perda da ficha de registro, fazendo com que o pedido do cliente não fosse atendido conforme o combinado.
+
+Por que não usar calculadoras disponíveis na internet?
+Muitas vezes a internet no local passa por oscilações.
+
+Por que não usar um smartphone com um aplicativo de cálculo de IMC ou similar?
+O sistema precisa ser integrado com a geração do pedido para maior rapidez no processo.
+
+Qual é a solução proposta?
+Usar os computadores/celulares dos funcionários para no momento do resultado do calculo ser disponibilizar uma prévia de como o quadro irá ficar e uma opcao de gerar a ficha do cliente.
+
+Stakeholders
+============
+- Funcionários de lojas de quadros
+- Cliente
+
+Vocabulário de Negócio
+======================
+
+
+Atividades de Negócio (NÃO É REQUISITO)
+=====================
+- A001 - Calcular o área do quadro;
+- A002 - Calcular o perimetro do quadro;
+- A003 - Dado a área e perimetro do quadro, mostrar uma prévia de como o quadro irá ficar;
+- A004 - Registrar dados obtidos na ficha do cliente.
+
+Processo de Negócio
+===================
+- A001 a A004
+  O funcionário registra o tamanho do raio(mm) para quadros circulares ou altura(mm) e largura(mm) para quadros retangulares. Os valores são registrados na ficha do cliente, 
+com a data do dia. Em seguida, o funcionário calcula a área e o perimetro do quadro utilizando a fórmula descrita na RN0001 (para circuferencia) e na RN0002 (para retnagulos). Após o cálculo, 
+ele verifica na tabela da RN0003 qual é a classificação do quadro e define o preço que o cliente terá que pagar para elaboração do mesmo. Por fim, ele registra a área e perimetro, a 
+classificação e o preço que o cliente terá que pagar pelo quadro.
+
+Regras de Negócio
+=================
+RN0001 - Cálculo de circunferências
+         área = PI.R^2
+         perímetro = 2.PI.R
+
+RN0002 - Cálculo de retângulos
+         área = BASE.ALTURA
+         perímetro = 2.(BASE+ALTURA)
+
+RN0003 - Tabela de classificação de tamanhos de papeis da série A.
+         Tamanho            Largura x Altura (mm)            Preço (R$)
+     Maior que A0             > 841 x 1189                Consultar Gerente
+     Entre A0 e A1	 841 x 1189 - 594 x 841                 100
+     Entre A1 e A2	  594 x 841 - 420 x 594                 80
+     Entre A2 e A3	  420 x 594 - 297 x 420                 40
+     Entre A3 e A4	  297 x 420 - 210 x 297                 20
+     Entre A4 e A5        210 x 297 - 148 x 210                 10
+     Menor que A5	      < 148 x 210                Consultar Gerente
+
+Requisitos
+==========
+RF0001 - Cálculo da área e do perimetro
+         O sistema deve permitir ao usuário informar um CPF, nome, medidas desejadas para o quadro e, em seguida, calcular a área e perimetro para os dados informados.
+RF0002 - Classificação dos tamanhos dos quadros
+         O sistema deve obter, além do valor da área e perimetro (RN0001 e RN0002), a classificação em que o quadro se encontra, considerando RN0003.
+RF0003 - Classificação de preço do quadro
+         O sistema deve mostrar o preço que o cliente terá que pagar pelo quadro, baseado na área do quadro.
+RF0004 - O sistema deve armazenar um histórico dos pedidos realizados.
+RF0005 - Os funcionários podem consultar o histórico de cálculos dos pedidos a partir do seu CPF e nome completo.
